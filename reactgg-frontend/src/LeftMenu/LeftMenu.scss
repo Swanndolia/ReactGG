@@ -1,0 +1,19 @@
+.LeftMenu{
+  background: #180D35;
+  flex: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding-top: 20px;
+}
+img{
+  width: 20px;
+  height: 20px;
+}
+span{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
