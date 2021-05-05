@@ -6,6 +6,8 @@ import Header from "./Header/Header";
 import LeftMenu from "./LeftMenu/LeftMenu";
 import reportWebVitals from "./reportWebVitals";
 
+export
+
 function setSelectedTab(tab) {
   ReactDOM.render(
     <SelectedTab selectedTab={tab} />,
