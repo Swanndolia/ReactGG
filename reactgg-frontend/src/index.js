@@ -6,16 +6,24 @@ import Header from "./Header/Header";
 import LeftMenu from "./LeftMenu/LeftMenu";
 import reportWebVitals from "./reportWebVitals";
 
-let selectedTab = "";
 function setSelectedTab(tab) {
+  ReactDOM.render(
+    <SelectedTab selectedTab={tab} />,
+    document.getElementById("selected-tab-container")
+  );
   return tab;
 }
+
 ReactDOM.render(
   <React.StrictMode>
     <Header />
     <main>
-      <LeftMenu setSelectedTab={setSelectedTab} />
-      <SelectedTab selectedTab={setSelectedTab} />
+      <div id="left-menu-container">
+        <LeftMenu setSelectedTab={setSelectedTab} />
+      </div>
+      <div id="selected-tab-container">
+        <SelectedTab selectedTab={""} />
+      </div>
     </main>
   </React.StrictMode>,
   document.getElementById("root")
