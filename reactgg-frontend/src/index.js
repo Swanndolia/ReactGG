@@ -6,17 +6,14 @@ import Header from "./Header/Header";
 import LeftMenu from "./LeftMenu/LeftMenu";
 import reportWebVitals from "./reportWebVitals";
 
-export
+const selectedTabElement = React.createRef();
+let selectedTab = "";
 
 function setSelectedTab(tab) {
-  ReactDOM.render(
-    <SelectedTab selectedTab={tab} />,
-    document.getElementById("selected-tab-container")
-  );
-  return tab;
+  selectedTabElement.current.changeSelectedTab(tab);
 }
 
-ReactDOM.render(
+let main = (
   <React.StrictMode>
     <Header />
     <main>
@@ -24,14 +21,12 @@ ReactDOM.render(
         <LeftMenu setSelectedTab={setSelectedTab} />
       </div>
       <div id="selected-tab-container">
-        <SelectedTab selectedTab={""} />
+        <SelectedTab ref={selectedTabElement} selectedTab={selectedTab} />
       </div>
     </main>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+ReactDOM.render(main, document.getElementById("root"));
+
 reportWebVitals(console.log);
