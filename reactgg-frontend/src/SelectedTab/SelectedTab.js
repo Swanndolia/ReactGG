@@ -14,7 +14,7 @@ import {
 
 class SelectedTab extends React.Component {
   state = {
-    selectedTab: this.props,
+    selectedTab: this.props.selectedTab,
   };
   changeSelectedTab(tab) {
     this.setState({ selectedTab: tab });
@@ -23,61 +23,61 @@ class SelectedTab extends React.Component {
     switch (this.state.selectedTab) {
       case "Profile":
         return (
-          <div className="SelectedTab">
-            <Profile />
+          <div className="selected-tab">
+            <Profile user={{name: "Swanndolia, ", rg: "euw1"}} />
           </div>
         );
       case "Live Game":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <LiveGame />
           </div>
         );
       case "Champions":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Champions />
           </div>
         );
       case "Matchups":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Matchups />
           </div>
         );
       case "Skills":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Skills />
           </div>
         );
       case "Statistics":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Statistics />
           </div>
         );
       case "Training":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Training />
           </div>
         );
       case "Settings":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Settings />
           </div>
         );
       case "Contact":
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Contact />
           </div>
         );
       default:
         return (
-          <div className="SelectedTab">
+          <div className="selected-tab">
             <Profile />
           </div>
         );
