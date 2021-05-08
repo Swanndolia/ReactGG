@@ -1,7 +1,47 @@
-.Header{
-  background: #180D35;
+.Header {
+  background: #180d35;
   padding: 10px;
   border-bottom: 1px solid white;
   display: flex;
+  height: 40px;
   justify-content: space-between;
+  & > span {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  & * > .dropdown {
+    color: #f9f9f9;
+    position: relative;
+    border-radius: 2px;
+    background: white;
+    padding: 6px;
+    color: #180d35;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  & * > .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0px;
+    background-color: #180d35;
+    padding: 12px 16px;
+    z-index: 1;
+    border-radius: 10px;
+  }
+
+  & * > .dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    & p {
+      padding: 10px;
+      border-radius: 10px;
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        color: #180d35;
+      }
+    }
+  }
 }
