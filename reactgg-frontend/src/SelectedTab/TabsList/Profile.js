@@ -4,7 +4,7 @@ import axios from "axios";
 function Profile() {
   const user = useState(JSON.parse(localStorage.getItem("user")));
   const region = useState(localStorage.getItem("region"));
-  const [league, setLeague] = useState();
+  const [league, setLeague] = useState("");
 
   function getLeague() {
    axios
@@ -27,7 +27,7 @@ function Profile() {
     <div id="profile-container">
       <h2>Profile</h2>
       <h3>{JSON.stringify(user[0])}</h3>
-      <h3>{JSON.stringify(league ? league[0] : getLeague())}</h3>
+      <h3>{JSON.stringify(league !== "" ? league[0] : getLeague())}</h3>
     </div>
   );
 }

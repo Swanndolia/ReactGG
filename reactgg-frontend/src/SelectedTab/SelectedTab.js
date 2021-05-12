@@ -25,13 +25,13 @@ class SelectedTab extends React.Component {
         case "Profile":
           return (
             <div className="selected-tab">
-              <Profile />
+              <Profile key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Live Game":
           return (
             <div className="selected-tab">
-              <LiveGame />
+              <LiveGame key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Champions":
@@ -43,31 +43,31 @@ class SelectedTab extends React.Component {
         case "Matchups":
           return (
             <div className="selected-tab">
-              <Matchups />
+              <Matchups key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Skills":
           return (
             <div className="selected-tab">
-              <Skills />
+              <Skills key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Statistics":
           return (
             <div className="selected-tab">
-              <Statistics />
+              <Statistics key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Training":
           return (
             <div className="selected-tab">
-              <Training />
+              <Training key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Settings":
           return (
             <div className="selected-tab">
-              <Settings />
+              <Settings key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
         case "Contact":
@@ -79,7 +79,7 @@ class SelectedTab extends React.Component {
         default:
           return (
             <div className="selected-tab">
-              <Profile />
+              <Profile key={JSON.parse(localStorage.getItem("user")).name}/>
             </div>
           );
       }
