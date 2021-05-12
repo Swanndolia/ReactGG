@@ -35,7 +35,12 @@ h6 {
   display: flex;
   background: lighten(#180d35, 6%);
   flex: calc(100% - 220px);
-  padding: 10px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 #left-menu-container {
