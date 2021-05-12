@@ -25,7 +25,7 @@ class SelectedTab extends React.Component {
         case "Profile":
           return (
             <div className="selected-tab">
-              <Profile user={{ name: "Swanndolia, ", rg: "euw1" }} />
+              <Profile />
             </div>
           );
         case "Live Game":

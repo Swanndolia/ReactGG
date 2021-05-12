@@ -15,7 +15,7 @@ function setSelectedTab(tab) {
 
 let main = (
   <React.StrictMode>
-    <Header />
+    <Header setSelectedTab={setSelectedTab} />
     <main>
       <div id="left-menu-container">
         <LeftMenu setSelectedTab={setSelectedTab} />
