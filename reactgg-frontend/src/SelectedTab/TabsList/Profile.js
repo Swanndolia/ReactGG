@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Profile() {
@@ -6,8 +6,8 @@ function Profile() {
   const region = useState(localStorage.getItem("region"));
   const [league, setLeague] = useState("");
 
-  function getLeague() {
-   axios
+  useEffect(() => {
+    axios
       .get(
         "http://localhost:8080/api/users/getUserLeague/" +
           region[0] +
@@ -21,13 +21,13 @@ function Profile() {
       .catch((error) => {
         console.log(error);
       });
-  }
+  }, [])
 
   return (
     <div id="profile-container">
       <h2>Profile</h2>
       <h3>{JSON.stringify(user[0])}</h3>
-      <h3>{JSON.stringify(league !== "" ? league[0] : getLeague())}</h3>
+      <h3>{JSON.stringify(league[0])}</h3>
     </div>
   );
 }
