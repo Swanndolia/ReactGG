@@ -15,7 +15,8 @@ exports.getUser = (req, res, next) => {
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      res.status(404).json(error.status);
+      console.log(error.code + " summoner")
+      res.status(400).json(error.code);
     });
 };
 
@@ -34,8 +35,8 @@ exports.getUserLeague = (req, res, next) => {
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      console.log(error)
-      res.status(404).json(error.status);
+      console.log(error.code +" league")
+      res.status(400).json(error.code);
     });
 };
 

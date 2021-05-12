@@ -6,11 +6,16 @@ function getUserData(event, rg, user, setSelectedTab) {
     axios
       .get("http://localhost:8080/api/users/getUser/" + rg + "/" + user)
       .then((response) => {
-        localStorage.setItem("user", JSON.stringify(response.data));
-        setSelectedTab("Profile");
+        if (response) {
+          localStorage.setItem("user", JSON.stringify(response.data));
+          setSelectedTab("Profile");
+        }
       })
       .catch((error) => {
-        console.log(error + "erreur, utilisateur introuvable");
+        if ((error = "ENOTFOUND")) {
+          alert("utilisateur introuvable");
+        }
+        console.log(error);
       });
   }
 }

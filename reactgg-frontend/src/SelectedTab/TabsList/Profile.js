@@ -6,13 +6,16 @@ function Profile() {
   const region = useState(localStorage.getItem("region"));
   const [league, setLeague] = useState("");
 
+  const [userData, regionData, leagueData] = [user[0], region[0], league[0]]
+
   useEffect(() => {
+    console.log(userData.id)
     axios
       .get(
         "http://localhost:8080/api/users/getUserLeague/" +
-          region[0] +
+          regionData +
           "/" +
-          user[0].id
+          userData.id
       )
       .then((response) => {
         localStorage.setItem("league", JSON.stringify(response.data));
@@ -21,13 +24,13 @@ function Profile() {
       .catch((error) => {
         console.log(error);
       });
-  }, [])
-
+  }, [userData, regionData]);
   return (
     <div id="profile-container">
       <h2>Profile</h2>
-      <h3>{JSON.stringify(user[0])}</h3>
-      <h3>{JSON.stringify(league[0])}</h3>
+      <h3>{JSON.stringify(userData)}</h3>
+      <br />
+      <h3>{JSON.stringify(leagueData)}</h3>
     </div>
   );
 }

@@ -25,7 +25,7 @@ class SelectedTab extends React.Component {
         case "Profile":
           return (
             <div className="selected-tab">
-              <Profile key={JSON.parse(localStorage.getItem("user")).name}/>
+              <Profile key={JSON.parse(localStorage.getItem("user")).name + localStorage.getItem("region")}/>
             </div>
           );
         case "Live Game":
