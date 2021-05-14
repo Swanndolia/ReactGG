@@ -12,8 +12,10 @@ function getUserData(event, rg, user, setSelectedTab) {
         }
       })
       .catch((error) => {
-        if ((error = "ENOTFOUND")) {
-          alert("utilisateur introuvable");
+        if (error === "ENOTFOUND") {
+          alert(
+            "User not found, pease check the spelling and the region selected"
+          );
         }
         console.log(error);
       });
@@ -31,6 +33,7 @@ function Header({ setSelectedTab }) {
       <h1>React.gg</h1>
       <span>
         <input
+          id="user-search-input"
           placeholder="Search a summoner..."
           onKeyPress={(evt) =>
             getUserData(

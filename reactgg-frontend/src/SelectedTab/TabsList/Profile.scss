@@ -1,4 +1,14 @@
-#profile-container {
+figure#profile {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  width: max-content;
+  & > figcaption {
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  & > h3 {
+    text-align: center;
+  }
 }
