@@ -15,7 +15,7 @@ exports.getUser = (req, res, next) => {
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      console.log(error.code + " summoner")
+      console.log(error.code + " summoner");
       res.status(400).json(error.code);
     });
 };
@@ -35,8 +35,28 @@ exports.getUserLeague = (req, res, next) => {
       res.status(200).json(response.data);
     })
     .catch((error) => {
-      console.log(error.code +" league")
+      console.log(error.code + " league");
       res.status(400).json(error.code);
     });
 };
 
+exports.getUserHistory = (req, res, next) => {
+  console.log("test")
+  const url =
+    "https://" +
+    req.params.wrg +
+    ".api.riotgames.com/lol/match/v5/matches/by-puuid/" +
+    req.params.puuid +
+    "/ids?count=5&api_key=" +
+    process.env.API_KEY;
+
+  axios
+    .get(url)
+    .then((response) => {
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.log(error.code + " history");
+      res.status(400).json(error.code);
+    });
+};

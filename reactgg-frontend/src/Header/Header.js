@@ -25,6 +25,13 @@ function setRegion(e) {
   e.stopPropagation();
   document.getElementById("region-selector").textContent = e.target.textContent;
   localStorage.setItem("region", e.target.textContent);
+  if (e.target.textContent === ("NA" || "BR" || "LAN" || "LAS" || "OCE")) {
+    localStorage.setItem("wregion", "americas");
+  } else if (e.target.textContent === ("KR" || "JP")) {
+    localStorage.setItem("wregion", "asia");
+  } else {
+    localStorage.setItem("wregion", "europe");
+  }
 }
 
 function Header({ setSelectedTab }) {
