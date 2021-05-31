@@ -3,7 +3,7 @@ const helmet = require("helmet");
 const session = require("express-session");
 const usersRoutes = require("./routes/users");
 const app = express();
-process.env.API_KEY = "RGAPI-5e46243a-21c5-41b0-af45-c137af649570";
+process.env.API_KEY = "RGAPI-0b6e60fe-eeeb-415c-aff5-0294e65079f9";
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
