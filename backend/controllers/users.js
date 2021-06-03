@@ -41,7 +41,7 @@ exports.getUserLeague = (req, res, next) => {
 };
 
 exports.getUserHistory = (req, res, next) => {
-  console.log("test")
+  console.log("test" + "\n");
   const url =
     "https://" +
     req.params.wrg +

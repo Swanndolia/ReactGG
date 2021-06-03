@@ -17,7 +17,6 @@ function GetData(props) {
             "league",
             JSON.stringify({
               summonerName: JSON.parse(localStorage.getItem("user")).name,
-              undefined: true,
             })
           );
         } else {
@@ -37,7 +36,6 @@ function GetData(props) {
       )
       .then((response) => {
         localStorage.setItem("history", JSON.stringify(response.data));
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -49,16 +47,16 @@ function GetData(props) {
 function Profile() {
   const user = useState(JSON.parse(localStorage.getItem("user")));
   const region = useState(localStorage.getItem("region"));
-  const [league, setLeague] = useState("");
+  const [league, setLeague] = useState(""); //rerender due state chnage when he get league, dont thinks it's valuable to assign state to league (real problem is second api call)
 
   let [userData, regionData, leagueData] = [user[0], region[0], league[0]];
 
-  const renderAfterDataLoaded = function () {
+  const loadData = function () {
     if (
-      (!localStorage.getItem("league") && leagueData == null) ||
       JSON.parse(localStorage.getItem("league")).summonerName !==
-        JSON.parse(localStorage.getItem("user")).name
+      JSON.parse(localStorage.getItem("user")).name //edit to check on region only change
     ) {
+      console.log("get");
       return (
         <GetData
           setLeague={setLeague}
@@ -67,10 +65,10 @@ function Profile() {
         />
       );
     }
-    leagueData = JSON.parse(localStorage.getItem("league"));
-    console.log(leagueData);
-    if (leagueData.undefined === true) {
-      console.log(true);
+  };
+
+  const renderAfterDataLoaded = function () {
+    if (!leagueData) {
       return (
         <div>
           <figure id="profile">
@@ -139,7 +137,6 @@ function Profile() {
         </div>
       ); //WHY IT DONT GO INSIDE THE ELSE AND DONT GO INSIDE THE IN
     } else {
-      console.log(false);
       return (
         <div>
           <figure id="profile">
@@ -285,6 +282,7 @@ function Profile() {
   return (
     <div id="profile-container">
       <h2 id="profile-username">{userData.name}</h2>
+      {loadData()}
       {renderAfterDataLoaded()}
     </div>
   );
