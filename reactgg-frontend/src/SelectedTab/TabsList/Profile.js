@@ -47,7 +47,7 @@ function GetData(props) {
 function Profile() {
   const user = useState(JSON.parse(localStorage.getItem("user")));
   const region = useState(localStorage.getItem("region"));
-  const [league, setLeague] = useState(""); //rerender due state chnage when he get league, dont thinks it's valuable to assign state to league (real problem is second api call)
+  const [league, setLeague] = useState("");
 
   let [userData, regionData, leagueData] = [user[0], region[0], league[0]];
 
