@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
+
 import SelectedTab from "./SelectedTab/SelectedTab";
 import Header from "./Header/Header";
 import LeftMenu from "./LeftMenu/LeftMenu";
